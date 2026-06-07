@@ -23,7 +23,7 @@ void Grid::draw(fabgl::Canvas* canvas) {
     for (int i = 1; i <= NUM_HORIZ_LINES; i++) {
         float z = (float)i * GRID_SPACING - scroll_offset;
         
-        if (z < 10.0f) continue; // Behind or too close to camera
+        if (z < 1.0f) continue; // Behind or too close to camera
         
         float inv_z = FOCAL_LENGTH / z;
         int sy = (int)(CAMERA_H * inv_z) + HORIZON_Y;
@@ -41,7 +41,7 @@ void Grid::draw(fabgl::Canvas* canvas) {
         float x = (float)i * GRID_SPACING;
         
         // Near point
-        float z_near = 10.0f;
+        float z_near = 1.0f;
         float inv_z_near = FOCAL_LENGTH / z_near;
         int x0 = (int)(x * inv_z_near) + SCREEN_CX;
         int y0 = (int)(CAMERA_H * inv_z_near) + HORIZON_Y;

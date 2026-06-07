@@ -138,6 +138,7 @@ void setup() {
 
     DisplayController.begin();
     DisplayController.setResolution(VGA_320x200_75Hz, -1, -1, true);
+    DisplayController.moveScreen(0, 8); // Shift VGA active area down to fill bottom gap
 
     playerCar.init();
 
